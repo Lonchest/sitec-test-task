@@ -2,6 +2,7 @@
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Xml;
+using System.Text;
 
 namespace SitecTestTask;
 
@@ -67,7 +68,7 @@ internal class Program
         DateOnly reportDate)
     {
         var hrmlRepotFileName = "report.html";
-        using (StreamWriter writer = new StreamWriter(hrmlRepotFileName))
+        using (StreamWriter writer = new StreamWriter(hrmlRepotFileName, false, Encoding.UTF8))
         {
             writer.WriteLine($"<html><body>");
             writer.WriteLine($"<h1>Отчет по добавленным адресам за {reportDate}</h1>");
